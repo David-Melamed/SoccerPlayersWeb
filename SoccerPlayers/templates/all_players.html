@@ -1,0 +1,42 @@
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'all_players.css'%}">
+</head>
+<body>
+
+{% for player in all_players %}
+<div class="gallery">
+  <a target="_blank" href="#">
+      {% if player.url|length > 0 %}
+    <img class="demo cursor" src="{{player.url}}" type="image/webp" style="width:80% ;height:200px;object-fit:cover">
+      {% else %}
+    <img class="demo cursor" src="/media/{{player.picture}}" style="width:80% ;height:200px;object-fit:cover">
+      {% endif %}
+  </a>
+  <div class="desc">{{player.first_name}} {{player.last_name}}</div>
+
+  <div class="additionInfo">
+      <p>Position: {{player.position}}</p>
+      <p>Start Date: {{player.start_date}}</p>
+      <p>Salary : {{player.salary}}</p>
+  </div>
+</div>
+{% endfor %}
+
+</body>
+<script>
+function removeHttp(url) {
+  return url.replace(/^https?:\/\//, '');
+}
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+

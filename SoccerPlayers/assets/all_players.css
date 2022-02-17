@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+div.gallery {
+  margin: 5px;
+  float: left;
+  width: 180px;
+}
+
+
+
+div.gallery img {
+  vertical-align: middle;
+  overflow: hidden;
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.cursor {
+  cursor: pointer;
+}

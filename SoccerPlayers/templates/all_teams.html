@@ -1,0 +1,32 @@
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'all_teams.css'%}">
+</head>
+
+<body>
+
+{% for team in teams %}
+<div class="gallery">
+  <a target="_blank" href="{% url 'my_app:all_players' team_players=team.city %}">
+    {% if team.url|length > 0 %}
+    <img class="demo cursor" src="{{team.url}}" type="image/webp" style="width:80% ;height:200px;object-fit:cover" >
+    {% else %}
+    <img src="{{team.picture.url}}" style="width:80% ;height:200px;object-fit:cover" >
+    {% endif %}
+  </a>
+  <div class="desc">{{team.name}}</div>
+</div>
+{% endfor %}
+
+</body>
+{% endblock %}
+
+
+
+
+
+
+
+
