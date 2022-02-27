@@ -4,7 +4,8 @@ import requests
 import json
 from datetime import datetime, timezone
 
-url = "http://localhost:8080/my_app/"
+
+url = "http://localhost:8080/api/players/"
 payload = {}
 headers = {}
 
@@ -13,7 +14,6 @@ data = json.loads(response.text.encode('utf8'))
 final_dict = {}
 final_dict['soccer_players'] = data
 
-print(data)
 
 with open("api_results.json", "w") as file:
     json.dump(final_dict, file, indent=2)
@@ -34,22 +34,24 @@ for player in data:
         count_num_of_players_in_team.update({player['team']: 1})
 
     players_info.append([player['first_name'], player['last_name'], player['start_date'],
-                         player['position'], player['salary'], player['team']])
+                         player['role'], player['salary'], player['team']])
     # player_start_date = player['start_date']
     # players_start_date.update({player_full_name : player_start_date})
 
 salary_avg = {x: float(count_salary_of_all_players[x]) / count_num_of_players_in_team[x] for x in
               count_num_of_players_in_team}
-
+print("Average salary for each team:")
+print(salary_avg)
 with open("external_app_results.txt", "w") as file:
+    file.write("Player whose play in his team more than one year and his salary is bellow the average:" + "\n")
     for player_info in players_info:
         if float(player_info[4]) < salary_avg.get(player_info[5]):
             player_start_date = datetime.strptime(player_info[2], "%Y-%m-%dT%H:%M:%S")
-            if (datetime.now() - player_start_date).total_seconds() < 31556926:
+            if (datetime.now() - player_start_date).total_seconds() > 31556926:
                 for x in range(0, len(player_info)):
-                    file.write(player_info[x] + "\n")
+                    file.write(player_info[x] + "; ")
                 file.write("\n")
-print("Completed!")
+print("\nProcess completed!")
 ##filter(lambda person: person['name'] == 'Pam', people)
 
 # def search(firstname, lastname):

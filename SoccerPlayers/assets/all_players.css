@@ -2,13 +2,20 @@
   box-sizing: border-box;
 }
 
+body{
+      background-image: url("https://ak.picdn.net/shutterstock/videos/2530226/thumb/5.jpg");
+      background-color: #000000;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
 div.gallery {
-  margin: 5px;
+  margin: 22px;
   float: left;
   width: 180px;
 }
-
-
 
 div.gallery img {
   vertical-align: middle;
@@ -19,10 +26,24 @@ div.gallery img {
 }
 
 div.desc {
-  padding: 15px;
-  text-align: center;
+  font-family: "Gill Sans Extrabold", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: Black;
+  padding: 10px;
+  text-align: left;
 }
 
 .cursor {
   cursor: pointer;
+}
+
+div.additionInfo{
+  font-family: "Gill Sans Extrabold", sans-serif;
+  font-size: 15px;
+  color: Green;
+  padding: 10px;
+  text-align: left;
+  float: none;
+  overflow: hidden;
 }

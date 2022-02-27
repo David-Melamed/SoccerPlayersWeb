@@ -1,0 +1,22 @@
+Player whose play in his team more than one year and his salary is bellow the average:
+Diego
+Costa
+2017-02-13T07:46:00
+Forward
+25000000
+Atletico Madrid
+
+Diego
+Simeone
+2008-08-13T00:00:00
+Coach
+12553450
+Atletico Madrid
+
+Scott
+Carson
+2017-07-01T00:00:00
+GoalKeeper
+5000000
+Manchester
+

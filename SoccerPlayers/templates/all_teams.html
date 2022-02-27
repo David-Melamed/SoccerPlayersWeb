@@ -9,9 +9,9 @@
 
 {% for team in teams %}
 <div class="gallery">
-  <a target="_blank" href="{% url 'my_app:all_players' team_players=team.city %}">
+  <a target="_blank" href="{% url 'my_app:all_players' team_players=team.name %}">
     {% if team.url|length > 0 %}
-    <img class="demo cursor" src="{{team.url}}" type="image/webp" style="width:80% ;height:200px;object-fit:cover" >
+    <img class="demo cursor" src="{{team.url}}" type="image/webp" style="width:110% ;height:200px;object-fit:cover;" >
     {% else %}
     <img src="{{team.picture.url}}" style="width:80% ;height:200px;object-fit:cover" >
     {% endif %}

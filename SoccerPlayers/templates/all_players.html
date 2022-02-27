@@ -10,17 +10,17 @@
 <div class="gallery">
   <a target="_blank" href="#">
       {% if player.url|length > 0 %}
-    <img class="demo cursor" src="{{player.url}}" type="image/webp" style="width:80% ;height:200px;object-fit:cover">
+    <img class="demo cursor" src="{{player.url}}" type="image/webp" style="width:70% ;height:200px;object-fit:cover">
       {% else %}
-    <img class="demo cursor" src="/media/{{player.picture}}" style="width:80% ;height:200px;object-fit:cover">
+    <img class="demo cursor" src="/media/{{player.picture}}" style="width:70% ;height:200px;object-fit:cover">
       {% endif %}
   </a>
   <div class="desc">{{player.first_name}} {{player.last_name}}</div>
 
   <div class="additionInfo">
-      <p>Position: {{player.position}}</p>
-      <p>Start Date: {{player.start_date}}</p>
-      <p>Salary : {{player.salary}}</p>
+      {{player.role_id}}<br>
+      Start Date: {{player.start_date|date:"M d, Y"}}<br>
+      Salary: {{player.salary}}
   </div>
 </div>
 {% endfor %}
